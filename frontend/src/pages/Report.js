@@ -12,7 +12,7 @@ const Report = () =>{
     useEffect(
       () => async () => {
         await api
-          .get("/users")
+          .get("users/")
           .then((res) => {
             setUsers(res.data);
           })
