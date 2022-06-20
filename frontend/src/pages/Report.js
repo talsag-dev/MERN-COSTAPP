@@ -14,6 +14,8 @@ const Report = () =>{
         await api
           .get("users/")
           .then((res) => {
+            console.log('hi')
+            console.log(res.data)
             setUsers(res.data);
           })
           .catch((err) => {
