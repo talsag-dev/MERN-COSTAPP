@@ -9,15 +9,17 @@ const CreateCost = () => {
     const [cost, setCost] = useState({});
     const [users,setUsers] = useState([]);
     const [addedNote,setaddedNote] = useState([]);
-    useEffect(() => async () => {
-        await api.get('/users').then(res => {
-            setUsers(res.data);
-        }
-        ).catch(err => {
+     useEffect(
+      () => {
+
+        const fetchData = async () => { await api.get("users/").then((res) => {
+          setUsers(res.data);
+        }); }
+
+        fetchData().catch((err) => {
             console.log(err);
-        }
-        );
-    }, []);
+          });
+        },[])
 
     const onChangeHandle = (e) => {
         setCost({ ...cost, [e.target.name]: e.target.value });

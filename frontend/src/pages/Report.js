@@ -11,14 +11,12 @@ const Report = () =>{
     const [usersToOptions,setusersToOptions] = useState([]);
     useEffect(
       () => {
-         api
-          .get("users/")
-          .then((res) => {
-            console.log('hi')
-            console.log(res.data)
-            setUsers(res.data);
-          })
-          .catch((err) => {
+
+        const fetchData = async () => { await api.get("users/").then((res) => {
+          setUsers(res.data);
+        }); }
+
+        fetchData().catch((err) => {
             console.log(err);
           });
           
