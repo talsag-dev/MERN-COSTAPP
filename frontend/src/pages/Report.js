@@ -10,8 +10,8 @@ const Report = () =>{
     const [selectedCategory, setSelectedCategory] = useState();
     const [usersToOptions,setusersToOptions] = useState([]);
     useEffect(
-      () => async () => {
-        await api
+      () => {
+         api
           .get("users/")
           .then((res) => {
             console.log('hi')
@@ -61,7 +61,7 @@ const Report = () =>{
     return (
       <Fragment>
         <div className='container'>
-          <Header title='Cost Report' />
+          <Header title='Get Report' />
           <form
             className='add-form'
             onChange={onChangeHandle}
